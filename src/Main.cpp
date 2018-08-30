@@ -118,8 +118,8 @@ int main() {
 
 	/*
 	 * ======= PART 2b: Initialize HID communication =============================
-	 * In this section we instatiate objects that handle the communication between
-	 * this firmware and MATLAB. Each of thess objects implements a server that responds
+	 * In this section we instantiate objects that handle the communication between
+	 * this firmware and MATLAB. Each of these objects implements a server that responds
 	 * to commands sent over HID. During RBE3001, you will be asked to
 	 * implement your own communication servers. To instantiate a new server, use the
 	 * template below:
