@@ -22,7 +22,9 @@ void ProtocolServer::event(float * packet){
    */
   for(int i = 0; i < myPumberOfPidChannels; i++)
 	{
-	  packet[(i*3)+0] = 0.1F + i;
+	  float position = myPidObjects[i]->GetPIDPosition();
+
+	  packet[(i*3)+0] = position;
 	  packet[(i*3)+1] = 0.2F + i;
 	  packet[(i*3)+2] = 0.3F + i;
 	}
