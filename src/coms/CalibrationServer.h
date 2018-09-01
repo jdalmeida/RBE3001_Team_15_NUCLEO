@@ -33,7 +33,6 @@ public:
   	}
   	void event(float * buffer);
   	void initHomePosition(float * homePosition, int length);
-	virtual ~CalibrationServer();
 };
 
 #endif /* SRC_COMS_CALIBRATIONSERVER_H_ */
