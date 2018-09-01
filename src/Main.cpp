@@ -132,7 +132,9 @@ int main() {
 	 *            by including the relevant header file at the beginning of this
 	 *            source file
 	 */
-
+	CalibrationServer *calServer= new CalibrationServer(pid, DOFs);
+	calServer->initHomePosition(homePosition, DOFs);
+	coms.attach((PacketEventAbstract *)calServer);
 	coms.attach(new PidServer(pid, DOFs));
 	coms.attach(new ProtocolServer(pid, DOFs));
 
