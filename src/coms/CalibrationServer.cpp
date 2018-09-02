@@ -17,7 +17,7 @@ void CalibrationServer::event(float * packet) {
 	//if the packet being recieved is all zeros, return encoder positions
 	int justStatus = 1;
 	//check for all 0s and update status
-	for (int i = 0; i < 16; i++) {
+	for (int i = 0; i < 15; i++) {
 		if (packet[i] != 0) {
 			justStatus = 0;
 		}
