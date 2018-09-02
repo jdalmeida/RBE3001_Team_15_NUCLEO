@@ -22,7 +22,7 @@ private:
   int myPumberOfPidChannels;
   float * homePosition;
   int homePosLength;
-
+  int hasCalibrated;
 public:
   CalibrationServer (PIDimp ** pidObjects, int numberOfPidChannels)
   		: PacketEventAbstract(CALIBRATION_SERVER_ID) {
@@ -30,6 +30,7 @@ public:
   	myPumberOfPidChannels = numberOfPidChannels;
   	homePosition=0;
   	homePosLength=0;
+  	hasCalibrated=0;
   	}
   	void event(float * buffer);
   	void initHomePosition(float * homePosition, int length);
