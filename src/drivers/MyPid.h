@@ -24,7 +24,7 @@
 // Initial values for the PID gains
 #define kp 0.005
 #define ki 0
-#define kd 0
+#define kd 0.01
 #define vkp 1
 
 #define vkd 0

@@ -22,7 +22,7 @@ void CalibrationServer::event(float * packet) {
 			justStatus = 0;
 		}
 	}
-	printf("just status is %d\r\n\r\n", justStatus);
+	//printf("just status is %d\r\n\r\n", justStatus);
 	if (justStatus) {
 		for (int i = 0; i < myPumberOfPidChannels; i++) {
 			float position = myPidObjects[i]->GetPIDPosition();
@@ -39,7 +39,7 @@ void CalibrationServer::event(float * packet) {
 		//printf("just status is 0\r\n\r\n");
 		for (int i = 0; i < homePosLength; i++) {
 			//homePosition[i] += packet[i];
-			printf("TEST ASDFGHJKL ", i, packet);
+			//printf("TEST ASDFGHJKL ", i, packet);
 			myPidObjects[i]->pidReset(myPidObjects[i]->GetPIDPosition() - packet[i]);
 		}
 		//printf("\r\n\r\n");
