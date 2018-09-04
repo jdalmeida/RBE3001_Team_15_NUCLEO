@@ -22,7 +22,7 @@ void CalibrationServer::event(float * packet) {
 			justStatus = 0;
 		}
 	}
-	//printf("just status is %d\r\n\r\n", justStatus);
+	//if it just wnats the status, then return the values of the encoders
 	if (justStatus) {
 		for (int i = 0; i < myPumberOfPidChannels; i++) {
 			float position = myPidObjects[i]->GetPIDPosition();
@@ -31,7 +31,6 @@ void CalibrationServer::event(float * packet) {
 			packet[(i * 3) + 2] = 0.3F + i;
 			//this makes sure calibrate can't run more than once
 			hasCalibrated=0;
-			//printf("%f\r\n\r\n", position);
 		}
 	//otherwise take the packet and update home position
 	//then reset the packet
@@ -39,10 +38,8 @@ void CalibrationServer::event(float * packet) {
 		//printf("just status is 0\r\n\r\n");
 		for (int i = 0; i < homePosLength; i++) {
 			//homePosition[i] += packet[i];
-			//printf("TEST ASDFGHJKL ", i, packet);
 			myPidObjects[i]->pidReset(myPidObjects[i]->GetPIDPosition() - packet[i]);
 		}
-		//printf("\r\n\r\n");
 
 		for (int i = 4; i < 64; i++)
 			buff[i] = 0;
