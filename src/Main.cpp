@@ -20,7 +20,7 @@
 #define  DOFs  3     // this macro defines the number of joints of the robotic arm
 //#define  DUMMYMODE   // this macro selects the running mode - see instructions above
 
-//#define  DEBUG_      // if defined, this macro enables the printing of debug
+#define  DEBUG_      // if defined, this macro enables the printing of debug
 // statements to the serial port - which can be read with PUTTY
 
 /*
@@ -82,7 +82,6 @@ int main() {
 #endif
 
 	RunEveryObject * print = new RunEveryObject(0, 100);
-
 	// disable PID
 	for (int i = 0; i < DOFs; i++)
 		pid[i]->state.config.Enabled = false;
