@@ -82,7 +82,6 @@ int main() {
 #endif
 
 	RunEveryObject * print = new RunEveryObject(0, 100);
-
 	// disable PID
 	for (int i = 0; i < DOFs; i++)
 		pid[i]->state.config.Enabled = false;
