@@ -23,10 +23,12 @@ void ProtocolServer::event(float * packet){
   for(int i = 0; i < myPumberOfPidChannels; i++)
 	{
 	  float position = myPidObjects[i]->GetPIDPosition();
+	  float velocity = myPidObjects[i]->getVelocity();
+	  float torque   = myPidObjects[i]->loadCell->read();
 
 	  packet[(i*3)+0] = position;
-	  packet[(i*3)+1] = 0.2F + i;
-	  packet[(i*3)+2] = 0.3F + i;
+	  packet[(i*3)+1] = velocity;
+	  packet[(i*3)+2] = torque;
 	}
 }
 
