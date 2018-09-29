@@ -79,6 +79,8 @@ int main() {
 			new AnalogIn(LOAD_2));  // mosi, miso, sclk, cs
 	pid[2] = new PIDimp(new Servo(SERVO_3, 5), new AS5050(spi5, ENC_3),
 			new AnalogIn(LOAD_3));  // mosi, miso, sclk, cs
+
+	//Servo gripper= Servo(GRIPPER_SERVO, 5);
 #endif
 
 	RunEveryObject * print = new RunEveryObject(0, 100);
@@ -137,6 +139,7 @@ int main() {
 	coms.attach(new PidServer(pid, DOFs));
 	coms.attach(new ProtocolServer(pid, DOFs));
 	coms.attach(new PidConfigServer(pid, DOFs));
+	coms.attach(new GripperServer(new Servo(GRIPPER_SERVO, 5)));
 
 #ifdef DEBUG_
 	printf("\r\n\r\n Initialization complete. \r\n\r\n");
