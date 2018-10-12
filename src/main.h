@@ -21,6 +21,7 @@
 #include "coms/ProtocolServer.h"
 #include "coms/CalibrationServer.h"
 #include "coms/PidConfigServer.h"
+#include "coms/GripperServer.h"
 // DEFINES
 #define REV2
 //#define REV1
